@@ -1,0 +1,27 @@
+{
+  "name": "typera",
+  "version": "0.0.1",
+  "homepage": "http://hello.iruka.fi",
+  "authors": [
+    "Ilkka Hakkarainen <ilkka.hakkarainen@cs.helsinki.fi>"
+  ],
+  "description": "The stupid typography library",
+  "main": "sass/_typera.scss",
+  "keywords": [
+    "sass",
+    "css",
+    "typography",
+    "typeface",
+    "webfonts"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
