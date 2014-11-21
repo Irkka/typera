@@ -1,1 +1,9 @@
 @import 'typera';
+
+.post-geometric {
+  @include type-system-geometric;
+}
+
+.post-sans-serif {
+  @include type-system-sans-serif;
+}

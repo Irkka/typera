@@ -23,5 +23,8 @@
     "tests"
   ],
   "dependencies": {
+    "Sass-Web-Fonts": "penman/Sass-Web-Fonts",
+    "semantic-query": "Irkka/semantic-query",
+    "bourbon": "~4.0.2"
   }
 }
