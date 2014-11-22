@@ -2,9 +2,5 @@
 @import 'Sass-Web-Fonts/web-fonts';
 @import 'semantic-query/sass/semantic-query';
 
-$web-fonts-protocol: "https";
-@include web-fonts('Questrial');
-@include web-fonts('Sanchez');
-@include web-fonts('PT Sans');
-@include web-fonts('Titillium Web');
+@import 'helpers';
 @import 'type-systems';

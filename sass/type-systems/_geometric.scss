@@ -1,5 +1,5 @@
-$base-font-color: darkgray;
-$base-border-radius: 5px;
+@include web-fonts('Questrial');
+@include web-fonts('Sanchez');
 
 @mixin type-system-geometric {
   $sans-serif: 'Questrial', sans-serif;
