@@ -2,36 +2,51 @@ $web-fonts-protocol: "http";
 $base-font-color: darkgray;
 $base-border-radius: 3px;
 
+$test-base-values: (
+  font: (size: 1em, color: darkgray, weight: 100),
+  border: (color: black, style: solid)
+);
+
 $typographic-base-values: (
-  font-size: 1em,
-  font-color: darkgray,
-  font-weight: 100,
+  font: (
+    size: 1em,
+    color: darkgray,
+    weight: 100
+  ),
+  link: (
+    color: blue,
+    color-hover: darkblue
+  ),
+  line: (
+    height: 1.5,
+    height-header: 1.25
+  ),
+  border: (
+    color: black,
+    style: solid,
+    width: 1px,
+    radius: 3px
+  ),
   accent-color: darkviolet,
-  link-color: blue,
-  link-color-hover: darkblue,
-  line-height: 1.5,
-  line-height-header: 1.25,
-  border-color: black,
-  border-style: solid,
-  border-width: 1px,
-  border-radius: 2px,
   spacing: 1.5 * 1em,
   z-index: 0,
   p: (
-    font-size: 1.05,
-    font-weight: 4
+    font: (
+      size: 1.05,
+      weight: 4
+    )
   ),
   h1: (
     font: (
       size: 1.8,
       weight: 7
     ),
-    font-size: 1.8,
-    font-weight: 7
   ),
   h2: (
-    font-size: 1.2,
-    font-weight: 4 
+    font: (
+      size: 1.2,
+      weight: 4
+    ),
   )
 );
 
