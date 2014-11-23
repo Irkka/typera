@@ -2,7 +2,17 @@
 @include import-fonts('geometric' 'sans-serif' 'rounded-sans-serif' 'serif' 'slab-serif' 'traditional');
 
 .geometric {
-  @include type-system-geometric;
+  @include type-system-geometric() {
+    .date {
+      @extend %date;
+    }
+    .read-more {
+      @extend %read-more;
+    }
+    .author {
+      @extend %author;
+    }
+  };
 }
 
 .sans-serif {
