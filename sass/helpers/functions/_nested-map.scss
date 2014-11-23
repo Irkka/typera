@@ -1,0 +1,16 @@
+@function map-merge-nested($options, $custom-options) {
+  $options-merged: ();
+  @each $option-name, $option-value in $custom-options {
+    $custom-option: map-get($custom-options, $option-name);
+    $option: map-get($options, $option-name);
+    $merged: ();
+    @if $option != null {
+      $merged: map-merge($option, $custom-option);
+    }
+    @else {
+      $merged: $custom-option;
+    }
+    $options-merged: map-set($options-merged, $option-name, $merged);
+  }
+  @return map-merge($options, $options-merged);
+}
