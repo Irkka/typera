@@ -1,6 +1,3 @@
-@include web-fonts('PT Sans');
-@include web-fonts('Titillium Web');
-
 @mixin type-system-sans-serif {
   $sans-serif: 'PT Sans', sans-serif;
   $sans-serif-2: 'Titillium Web', sans-serif;

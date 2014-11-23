@@ -1,6 +1,73 @@
 $web-fonts-protocol: "http";
-
 $base-font-color: darkgray;
-$base-border-radius: 5px;
+$base-border-radius: 3px;
 
-$base-line-height: 1.4 !default;
+$typographic-base-values: (
+  font-size: 1em,
+  font-color: darkgray,
+  font-weight: 100,
+  accent-color: darkviolet,
+  link-color: blue,
+  link-color-hover: darkblue,
+  line-height: 1.5,
+  line-height-header: 1.25,
+  border-color: black,
+  border-style: solid,
+  border-width: 1px,
+  border-radius: 2px,
+  spacing: 1.5 * 1em,
+  z-index: 0,
+  p: (
+    font-size: 1.05,
+    font-weight: 4
+  ),
+  h1: (
+    font: (
+      size: 1.8,
+      weight: 7
+    ),
+    font-size: 1.8,
+    font-weight: 7
+  ),
+  h2: (
+    font-size: 1.2,
+    font-weight: 4 
+  )
+);
+
+$type-systems: (
+geometric: (
+fonts: (
+serif: 'Sanchez',
+sans-serif: 'Questrial',
+mono: 'Inconsolata',
+)
+),
+sans-serif: (
+  fonts: (
+  sans-serif: 'PT Sans' 'Titillium'
+  )
+),
+rounded-sans-serif: (
+  fonts: (
+    sans-serif: 'Nunito' 'Varela Round'
+  )
+),
+serif: (
+  fonts: (
+    serif: 'Lusitana' 'Merriweather' 'Merriweather Sans'
+  )
+),
+slab-serif: (
+  fonts: (
+    sans-serif: 'Open Sans',
+    serif: 'Roboto Slab'
+  )
+),
+traditional: (
+  fonts: (
+    sans-serif: 'Noto Sans',
+    serif: 'Radley'
+  )
+)
+);

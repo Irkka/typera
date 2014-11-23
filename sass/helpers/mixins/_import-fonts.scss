@@ -1,0 +1,11 @@
+@mixin import-fonts($type-system-names) {
+  @each $type-system-name in $type-system-names {
+    $type-system: map-get($type-systems, $type-system-name);
+    $fonts: map-get($type-system, fonts);
+    @each $font-type, $font-names in $fonts {
+      @each $font-name in $font-names {
+        @include web-fonts($font-name);
+      }
+    }
+  }
+}

@@ -1,9 +1,14 @@
 @import 'typera';
+@include import-fonts('geometric' 'sans-serif' 'rounded-sans-serif' 'serif' 'slab-serif' 'traditional');
 
-.post-geometric {
+.geometric {
   @include type-system-geometric;
 }
 
-.post-sans-serif {
+.sans-serif {
   @include type-system-sans-serif;
+}
+
+.traditional {
+  @include type-system-traditional;
 }
