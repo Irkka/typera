@@ -10,6 +10,6 @@ Typera also build upon Ross Penman's library for easy Google Web Font importing 
 @import 'typera';
 
 .blog-post {
-  @include article('Geometric');
+  @include type-system('geometric');
 }
 ```
