@@ -1,0 +1,16 @@
+@import 'build/headings';
+@import 'build/paragraphs';
+@import 'build/code';
+@import 'build/images';
+
+@mixin type-system-build($options) {
+  @include build-headings($options);
+  @include build-paragraphs($options);
+  @include clearfix;
+  text-align: left;
+
+  code {
+    font-family: map-get($options, 'mono');
+  }
+}
+

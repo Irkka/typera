@@ -1,0 +1,17 @@
+@import 'type-system/build';
+
+@mixin type-system($type-system-name, $options) {
+  $type-system-options: map-get($type-systems, $type-system-name);
+  $options-maps: ($options $type-system-options);
+
+  $build-options: merge-options($typographic-base-values, $options-maps);
+  @include type-system-build($build-options);
+}
+
+@function merge-options($default, $options-maps) {
+  $merged-options: $default;
+  @each $options-map in $options-maps {
+    $merged-options: map-merge($merged-options, $options-map);
+  }
+  @return $merged-options;
+}

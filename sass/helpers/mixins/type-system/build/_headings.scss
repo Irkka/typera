@@ -1,0 +1,22 @@
+@mixin build-headings($options) {
+  $fonts: map-get($options, fonts);
+  $font-weight: map-get($options, font-weight);
+  $h1: map-get($options, h1);
+
+  %h {
+    font-family: map-get($fonts, serif);
+  }
+
+  @for $i from 1 through 6 {
+    h#{$i} {
+      @extend %h;
+    }
+  }
+
+  h1 {
+    $h1-font: map-get($h1, font);
+    font-size: map-get($options, font-size) * map-get($h1, font-size);
+    font-weight: $font-weight * map-get($h1, font-weight);
+  }
+
+}
