@@ -1,0 +1,43 @@
+$type-systems: (
+geometric: (
+  fonts: (
+  serif: 'Sanchez',
+  sans-serif: 'Questrial',
+  mono: 'Inconsolata',
+)
+),
+sans-serif: (
+  fonts: (
+  sans-serif: 'PT Sans' 'Titillium'
+  )
+),
+rounded-sans-serif: (
+  fonts: (
+    sans-serif: 'Nunito' 'Varela Round'
+  )
+),
+serif: (
+  fonts: (
+    serif: 'Lusitana' 'Merriweather' 'Merriweather Sans'
+  )
+),
+slab-serif: (
+  fonts: (
+    sans-serif: 'Open Sans',
+    serif: 'Roboto Slab'
+  )
+),
+traditional: (
+  fonts: (
+    sans-serif: 'Noto Sans',
+    serif: 'Radley'
+  )
+),
+iruka-unlimited: (
+  extends: (
+    test: (
+      color: orange
+    )
+  )
+)
+);

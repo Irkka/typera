@@ -1,0 +1,12 @@
+@mixin build-properties($properties) {
+  @each $property-name, $property-value in $properties {
+    @if type-of($property-value) == map {
+      @each $property-name-nested, $property-value-nested in $property-value {
+        #{$property-name}-#{$property-name-nested}: #{$property-value-nested};
+      }
+    }
+    @else {
+      #{$property-name}: #{$property-value};
+    }
+  }
+}
