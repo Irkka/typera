@@ -1,0 +1,7 @@
+@mixin build-selectors($selectors) {
+  @each $selector-name, $selector-properties in $selectors {
+    #{$selector-name} {
+      @include build-properties($selector-properties);
+    }
+  }
+}
