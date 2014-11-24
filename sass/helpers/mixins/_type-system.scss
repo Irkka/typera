@@ -9,4 +9,6 @@
   }
 
   @include type-system-build($build-options);
+
+  @content;
 }

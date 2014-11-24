@@ -1,0 +1,88 @@
+$base-font-color: darkgray;
+$base-border-radius: 3px;
+$typographic-base-values: (
+  general: (
+    text-align: left,
+    spacing: 1.5 * 1em,
+    z-index: 0,
+    font: (
+      size: 1em,
+      color: darkgray,
+      weight: 400
+    ),
+    line: (
+      height: 1.5,
+      height-header: 1.25
+    )
+  ),
+  selectors: (
+    h1: (
+      font: (
+        size: 1.8em,
+        weight: 700
+      ),
+      margin: (
+        bottom: .5em
+      )
+    ),
+    h2: (
+      font: (
+        size: 1.2em,
+        weight: 400,
+        style: italic
+      ),
+      line: (
+        height: 1.4em
+      ),
+      margin: (
+        bottom: 1.1em
+      )
+    ),
+    h3: (
+      font: (
+        size: 1.4em,
+        weight: 400
+      ),
+      line: (
+        height: 1.3em
+      ),
+      margin: (
+        bottom: .4em
+      )
+    ),
+    a: (
+      color: blue,
+    ),
+    p: (
+      font: (
+        size: 1.05em,
+        weight: 400
+      ),
+      line: (
+        height: 1.5em
+      ),
+      margin: (
+        bottom: 1.5em
+      )
+    ),
+    code: (
+      font: (
+        style: normal
+      ),
+      white-space: nowrap,
+      background: #F7F7F7,
+      border: (
+        style: solid,
+        width: 1px,
+        color: #E0E0E0,
+        radius: $base-border-radius * 1.5
+      ),
+      padding: .1em .4em
+    ),
+    hr: (
+      width: 3em
+    )
+  ),
+  extends: ()
+);
+

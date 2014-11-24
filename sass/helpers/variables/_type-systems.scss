@@ -1,10 +1,79 @@
 $type-systems: (
 geometric: (
   fonts: (
-  serif: 'Sanchez',
-  sans-serif: 'Questrial',
-  mono: 'Inconsolata',
-)
+    serif: 'Sanchez',
+    sans-serif: 'Questrial',
+    mono: 'Inconsolata',
+  ),
+  selectors: (
+    h1: (
+      font: (
+        family: 'Sanchez'
+      )
+    ),
+    h2: (
+      font: (
+        family: 'Sanchez'
+      )
+    ),
+    h3: (
+      font: (
+        family: 'Sanchez'
+      )
+    ),
+    p: (
+      font: (
+        family: 'Questrial'
+      )
+    )
+  ),
+  extends: (
+    type: (
+      font: (
+        family: 'Questrial',
+        size: .7em,
+        weight: 800
+      ),
+      border: (
+        bottom: 1px solid
+      ),
+      margin: (
+        bottom: 2em
+      ),
+      padding: .3em 0,
+      display: inline-block,
+      text-transform: uppercase
+    ),
+    date: (
+      color: transparentize($base-font-color, .6),
+      font: (
+        family: 'Sanchez',
+        style: italic,
+        size: .9em
+      ),
+      margin: (
+        bottom: .3em
+      )
+    ),
+    read-more: (
+      display: inline-block,
+      text-transform: uppercase,
+      position: relative,
+      font: (
+        family: 'Sanchez',
+        weight: 700,
+        size: .8em
+      ),
+      margin: (
+        left: .2em
+      )
+    ),
+    author: (
+      font: (
+        family: 'Questrial'
+      )
+    )
+  )
 ),
 sans-serif: (
   fonts: (
@@ -34,6 +103,17 @@ traditional: (
   )
 ),
 iruka-unlimited: (
+  fonts: (
+    serif: 'Sanchez',
+    sans-serif: 'Questrial',
+    mono: 'Inconsolata',
+  ),
+  general: (
+    font: (
+      family: 'Sanchez',
+      color: green
+    )
+  ),
   extends: (
     test: (
       color: orange
