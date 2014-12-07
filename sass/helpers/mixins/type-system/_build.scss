@@ -1,9 +1,0 @@
-@import 'build/properties';
-@import 'build/extends';
-@import 'build/selectors';
-
-@mixin type-system-build($options) {
-  @include build-properties(map-get($options, general));
-  @include build-extends(map-get($options, extends));
-  @include build-selectors(map-get($options, selectors));
-}

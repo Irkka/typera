@@ -1,0 +1,26 @@
+@mixin responsive-text($base-font-size, $baseline, $multiplier) {
+  font: {
+    size: $base-font-size * $multiplier;
+  }
+  line: {
+    height: $baseline * round($multiplier) * 2;
+  }
+}
+
+@mixin responsive-heading($base-font-size, $baseline, $size-step, $heading-tier) {
+  $multiplier: 1 + $size-step * (6 - $heading-tier);
+  font: {
+    size: $base-font-size * $multiplier;
+  }
+  line: {
+    height: $baseline * round($multiplier) * 1.5;
+  }
+  margin: {
+    top: $baseline;
+    bottom: $baseline;
+  }
+
+  article & {
+    margin-top: 2 * $baseline;
+  }
+}

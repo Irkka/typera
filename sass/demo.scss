@@ -1,30 +1,19 @@
 @import 'typera';
-@include import-fonts('geometric' 'sans-serif' 'rounded-sans-serif' 'serif' 'slab-serif' 'traditional');
 
-.geometric {
-  @include type-system('geometric', ()) {
-    .type {
-      @extend %type;
-    }
+$fonts: (
+serif: 'Lora',
+sans-serif: 'Questrial',
+monospace: 'VT323',
+cursive: 'Lobster'
+);
 
-    .date {
-      @extend %date;
-    }
+$palette: (
+primary-color: red,
+aux-color: green,
+secondary-aux-color: yellow,
+accent-color: blue
+);
 
-    .author {
-      @extend %author;
-    }
-
-    .read-more {
-      @extend %read-more;
-    }
-  };
-}
-
-.sans-serif {
-  @include type-system-sans-serif;
-}
-
-.traditional {
-  @include type-system-traditional;
-}
+$web-fonts-protocol: 'http';
+@include import-fonts($fonts);
+@include build-typography($fonts, $palette);

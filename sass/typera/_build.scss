@@ -1,0 +1,15 @@
+@import 'build/extends';
+
+@mixin build-typography($fonts, $palette: (primary: red, aux-color: yellow, secondary-aux-color: blue, accent-color: green)) {
+  /*
+  * Vertical Rhythm is determined by $baseline
+  */
+  $base-font-size: 16px;
+  $baseline: $base-font-size * 0.8;
+
+  /*$base-z-index: 0;*/
+
+  @include build-text($base-font-size, $baseline, $fonts, $palette);
+  @include build-images($baseline);
+  @include build-decorative-elements($baseline, $palette);
+}

@@ -3,5 +3,5 @@
 @import 'Sass-Web-Fonts/web-fonts';
 @import 'semantic-query/sass/semantic-query';
 
-@import 'helpers';
-@import 'type-systems';
+@import 'typera/mixins';
+@import 'typera/build';

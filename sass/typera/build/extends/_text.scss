@@ -1,0 +1,177 @@
+@import 'text/headings';
+@import 'text/code';
+
+@mixin build-text($base-font-size, $baseline, $fonts, $palette) {
+  $sans-serif: map-get($fonts, sans-serif);
+  $serif: map-get($fonts, serif);
+  $monospace: map-get($fonts, monospace);
+  $cursive: map-get($fonts, cursive);
+
+  $base-font-family: $sans-serif;
+  $base-heading-font-family: $cursive;
+
+  $site-primary-color: map-get($palette, primary-color);
+  $site-secondary-color: map-get($palette, aux-color);
+  $site-tertiary-color: map-get($palette, secondary-aux-color);
+
+  $site-accent-color: map-get($palette, accent-color);
+
+  $base-font-color: #333333;
+  $base-accent-color: darken($site-primary-color, 20%);
+
+
+  %base-text {
+    $multiplier: 1;
+    color: $base-font-color;
+    text-align: justify;
+    @include responsive-text($base-font-size, $baseline, $multiplier);
+    font: {
+      family: $base-font-family;
+      weight: 400;
+    }
+
+    @include tablet-up {
+      @include responsive-text($base-font-size, $baseline, $multiplier + 0.025);
+    }
+
+    @include desktop-up {
+      @include responsive-text($base-font-size, $baseline, $multiplier + 0.05);
+    }
+  }
+
+  %base-text-block {
+    @extend %base-text;
+    margin: {
+      top: $baseline;
+      bottom: $baseline;
+    }
+  }
+
+  p {
+    @extend %base-text-block;
+  }
+
+  a {
+    @extend %base-text;
+    color: $base-accent-color;
+  }
+
+  %code {
+    @extend %base-text;
+    @extend %code-snippet;
+    $multiplier: 1.2;
+    font: {
+      family: $monospace;
+      weight: 500;
+    }
+    @include responsive-text($base-font-size, $baseline, $multiplier);
+    padding: .1em .4em;
+
+    pre & {
+      background: none;
+      border: none;
+      padding: unset;
+      display: block;
+    }
+  }
+
+  %code-snippet {
+    background: #BBBBBB;
+    border: 1px solid darken(#BBBBBB, 5);
+    border-radius: 4px * 1.5;
+  }
+
+  %code-block {
+    @extend %code-snippet;
+    padding: $baseline/2;
+  }
+
+  code {
+    @extend %code;
+  }
+
+  pre {
+    @extend %code-block;
+  }
+
+  kbd {
+    @extend %code;
+    &:before {
+      content: '$ >';
+    }
+    &:after {
+      content: '\21b5';
+    }
+  }
+
+  samp {
+    @extend %code;
+    &:before {
+      content: '==>';
+    }
+  }
+
+  var {
+    @extend %code;
+  }
+
+  blockquote {
+    font-family: Georgia, serif;
+    /*padding: 0.25em 40px;*/
+    color: #383838;
+    position: relative;
+    float: left;
+    clear: both;
+
+    &:nth-of-type(even) {
+      float: right;
+    }
+
+    &:before {
+      display: block;
+      content: "\201C";
+      font-size: 80px;
+      position: absolute;
+      @include transform(translateX(-0.6em) translateY(-0.2em));
+      color: #7a7a7a;
+    }
+
+    cite {
+      color: #999999;
+      font-size: 14px;
+      display: block;
+      margin-top: 5px;
+
+      &:before {
+        content: "\2014 \2009";
+      }
+    }
+  }
+  // abbr, address, caption(tables), del, ins, q(short quote), sup/sub(sub/superscript - especially for citing annotations), time, code(ouput, code, samp, kbd, var), details, summary, dialog, s, mark
+
+  /*cite {*/
+  /*color: lighten($base-font-color, 25);*/
+  /*font-style: italic;*/
+
+  /*&:before {*/
+  /*content: "\2014 \00A0";*/
+  /*}*/
+/*}*/
+
+  /*a {*/
+  /*@include transition(color 0.1s linear);*/
+  /*color: $base-link-color;*/
+  /*text-decoration: none;*/
+
+  /*&:hover {*/
+  /*color: $hover-link-color;*/
+  /*}*/
+
+  /*&:active, &:focus {*/
+  /*color: $hover-link-color;*/
+  /*outline: none;*/
+  /*}*/
+/*}*/
+
+  @include build-headings($cursive, $base-font-size, $baseline, $fonts, $palette);
+}

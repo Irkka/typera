@@ -1,0 +1,5 @@
+@import 'apply/text';
+
+@mixin apply-text() {
+  @include apply-headings;
+}

@@ -1,0 +1,15 @@
+@mixin build-decorative-elements($baseline, $palette) {
+  %horizontal-rule {
+    $gray: #BBBBBB;
+    color: transparentize($gray, 0.5);
+    width: $baseline * 3;
+    margin: {
+      top: $baseline * 2;
+      bottom: $baseline * 2;
+    }
+  }
+
+  hr {
+    @extend %horizontal-rule;
+  }
+}
