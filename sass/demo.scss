@@ -1,19 +1,25 @@
 @import 'typera';
 
-$fonts: (
-serif: 'Lora',
-sans-serif: 'Questrial',
-monospace: 'VT323',
-cursive: 'Lobster'
+$typera-base-values: (
+  font: (
+    families: (
+      serif: 'Slabo',
+      sans-serif: 'Questrial',
+      monospace: 'VT323',
+      cursive: 'Lobster'
+    ),
+    size: 32px
+  )
 );
 
 $palette: (
-primary-color: red,
-aux-color: green,
-secondary-aux-color: yellow,
-accent-color: blue
+  main-colors: (
+    primary-color: red,
+    aux-color: green,
+    secondary-aux-color: yellow,
+    accent-color: blue
+  ),
+  type: accented-analogic
 );
 
-$web-fonts-protocol: 'http';
-@include import-fonts($fonts);
-@include build-typography($fonts, $palette);
+@include typera-apply($typera-base-values, $palette);

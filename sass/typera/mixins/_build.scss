@@ -1,0 +1,47 @@
+@import 'build/utilities';
+@import 'build/extends';
+
+@mixin typera-build($typera-base-values, $palette: ()) {
+  $default-base-values: (
+    font: (
+      families: (
+        serif: 'Lora',
+        sans-serif: 'Questrial',
+        monospace: 'VT323',
+        cursive: 'Lobster'
+      ),
+      size: 16px
+    ),
+    base: (
+      font: (
+        size: 16px,
+        family: sans-serif,
+        color: #111
+      ),
+      heading: (
+        font: (
+        family: cursive
+        )
+      )
+    ),
+    baseline: 0.8
+  );
+
+  $default-palette: (
+    main-colors: (
+      primary-color: red,
+      aux-color: yellow,
+      secondary-aux-color: blue,
+      accent-color: green
+    ),
+    type: accented-analogic
+  );
+
+  $typera-base-values: nested-map-merge($default-base-values, $typera-base-values);
+  $palette: nested-map-merge($default-palette, $palette);
+
+  $web-fonts-protocol: 'http';
+  @include import-fonts(nested-map-get($typera-base-values, ('font' 'families')));
+
+  @include build-extends($typera-base-values, $palette);
+}

@@ -1,0 +1,35 @@
+@import 'classes/article';
+
+@mixin build-classes($typera-base-values, $palette) {
+  %type {
+    border-bottom: 1px solid;
+    display: inline-block;
+    font-family: nested-map-get($typera-base-values, font families sans-serif);
+    font-size: .7em;
+    font-weight: 800;
+    margin-bottom: nested-map-get($typera-base-values, baseline) * 4;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  %date {
+    color: transparentize(nested-map-get($typera-base-values, base font color), .6);
+    font-family: nested-map-get($typera-base-values, font families serif);
+    font-style: italic;
+    font-size: .9em;
+    margin-bottom: .3em;
+  }
+
+  %author {
+  }
+
+  %read-more {
+    display: inline-block;
+    font-family: nested-map-get($typera-base-values, font families sans-serif);
+    font-weight: 700;
+    font-size: .8em;
+    text-transform: uppercase;
+    margin-left: .2em;
+    position: relative;
+  }
+}

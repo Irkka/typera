@@ -1,0 +1,9 @@
+@import 'extends/base';
+@import 'extends/elements';
+@import 'extends/classes';
+
+@mixin build-extends($typera-base-values, $palette) {
+  @include build-base($typera-base-values, $palette);
+  @include build-elements($typera-base-values, $palette);
+  @include build-classes($typera-base-values, $palette);
+}

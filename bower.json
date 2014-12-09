@@ -26,6 +26,6 @@
     "Sass-Web-Fonts": "penman/Sass-Web-Fonts",
     "semantic-query": "Irkka/semantic-query",
     "bourbon": "~4.0.2",
-    "sassy-maps": "~0.4.0"
+    "nested-maps": "Irkka/nested-maps"
   }
 }

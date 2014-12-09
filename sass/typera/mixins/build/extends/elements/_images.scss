@@ -1,0 +1,40 @@
+@mixin build-images($typera-base-values, $palette) {
+  %img {
+  }
+
+  %figure {
+    article & {
+      max-width: 100%;
+      padding: 0.5em;
+      clear: both;
+
+      @include tablet-up {
+      }
+
+      @include desktop-up {
+        max-height: nested-map-get($typera-base-values, baseline) * 20;
+        max-width: 50%;
+        float: right;
+
+        &:nth-of-type(even) {
+          float: left;
+        }
+      }
+    }
+  }
+
+  %figcaption {
+   padding: 5px;
+   font-family: nested-map-get($typera-base-values, font families cursive);
+   font-size: 1em;
+   font-weight: 700;
+   border: none;
+   background: transparent;
+   word-wrap:normal;
+   text-align: left;
+
+   &:before {
+     content: '-';
+   }
+ }
+}

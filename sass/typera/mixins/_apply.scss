@@ -1,0 +1,37 @@
+@mixin apply-elements($elements) {
+  @each $element in $elements {
+    #{$element} {
+      @extend %#{$element} !optional;
+    }
+  }
+}
+
+@mixin apply-classes($classes) {
+  @each $class in $classes {
+    .#{$class} {
+      @extend %#{$class} !optional;
+    }
+  }
+}
+
+@mixin apply-all($apply-map) {
+  @include apply-elements(map-get($apply-map, elements));
+  @include apply-classes(map-get($apply-map, classes));
+}
+
+@mixin typera-apply($typera-base-values, $palette) {
+  @include typera-build($typera-base-values, $palette);
+  $all-elements: ();
+  $text-elements: ('a' 'abbr' 'address' 'blockquote' 'cite' 'code' 'del' 'dfn' 'h1' 'h2' 'h3' 'h4' 'h5' 'h6' 'ins' 'kdb' 'mark' 'pre' 'q' 's' 'samp' 'sub' 'sup' 'time' 'var');
+  $image-elements: ('img', 'figure', 'figcaption');
+  $other-elements: ('hr');
+
+  @each $element-list in $text-elements, $image-elements, $other-elements {
+    $all-elements: join($all-elements, $element-list);
+  }
+
+  $all-classes: ('date' 'author' 'type' 'read-more');
+
+  $apply-map: (elements: $all-elements, classes: $all-classes);
+  @include apply-all($apply-map);
+}
