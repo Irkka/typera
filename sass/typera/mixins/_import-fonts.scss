@@ -1,5 +1,31 @@
 @mixin import-fonts($font-maps) {
-  @each $font-map in $font-maps {
-    @include web-fonts($font-map);
+  @include import-google-web-fonts(nested-map-get($font-maps, google families));
+  @include import-local(nested-map-get($font-maps, local));
+  @include import-icon-fonts(nested-map-get($font-maps, icons));
+}
+
+@mixin import-google-web-fonts($font-families) {
+  @each $font-family in $font-families {
+    @include web-fonts($font-family);
+  }
+}
+
+@mixin import-icon-fonts($icon-fonts) {
+  @each $icon-font-name, $icon-font-source in $icon-fonts {
+    @font-face {
+      font-family: 'Font Awesome';
+      src: url($icon-font-source) format('woff');
+    }
+  }
+}
+
+@mixin import-local($font-local) {
+  $font-path: nested-map-get($font-local, path);
+  $font-families: nested-map-get($font-local, families);
+  @each $font-family, $font-name in $font-families {
+    @font-face {
+      font-family: $font-name;
+      src: url('#{$font-path}/orange.ttf');
+    }
   }
 }

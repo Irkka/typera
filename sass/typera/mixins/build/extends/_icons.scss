@@ -1,0 +1,18 @@
+@mixin build-icons($typera-base-values, $palette) {
+  $font-awesome-icons: font-awesome-icons();
+  %base-icon {
+    display: inline-block;
+    font: normal normal normal normal 14px/1 'Font Awesome';
+    font-size: inherit;
+    text-rendering: auto;
+  }
+
+  @each $icon-name, $icon-code in $font-awesome-icons {
+    %icon-#{$icon-name} {
+      &:before {
+        @extend %base-icon;
+        content: $icon-code;
+      }
+    }
+  }
+}
