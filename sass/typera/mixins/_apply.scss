@@ -21,16 +21,18 @@
 
 @mixin typera-apply($typera-base-values, $palette) {
   @include typera-build($typera-base-values, $palette);
+  $typera-base-values: configure-typera($typera-base-values);
+
   $all-elements: ();
-  $text-elements: ('a' 'abbr' 'address' 'blockquote' 'cite' 'code' 'del' 'dfn' 'h1' 'h2' 'h3' 'h4' 'h5' 'h6' 'ins' 'kdb' 'mark' 'pre' 'q' 's' 'samp' 'sub' 'sup' 'time' 'var');
-  $image-elements: ('img', 'figure', 'figcaption');
-  $other-elements: ('hr');
+  $text-elements: nested-map-get($typera-base-values, elements text);
+  $image-elements: nested-map-get($typera-base-values, elements image);
+  $other-elements: nested-map-get($typera-base-values, elements other);
 
   @each $element-list in $text-elements, $image-elements, $other-elements {
     $all-elements: join($all-elements, $element-list);
   }
 
-  $all-classes: ('date' 'author' 'type' 'read-more');
+  $all-classes: nested-map-get($typera-base-values, classes);
 
   $apply-map: (elements: $all-elements, classes: $all-classes);
   @include apply-all($apply-map);
