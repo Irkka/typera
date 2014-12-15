@@ -1,4 +1,7 @@
-@mixin responsive-text($base-font-size, $baseline, $multiplier) {
+@mixin responsive-text($typera-base-values, $multiplier) {
+  $base-font-size: nested-map-get($typera-base-values, base font size);
+  $baseline: nested-map-get($typera-base-values, baseline);
+
   font: {
     size: $base-font-size * $multiplier;
   }
@@ -7,7 +10,10 @@
   }
 }
 
-@mixin responsive-heading($base-font-size, $baseline, $size-step, $heading-tier) {
+@mixin responsive-heading($typera-base-values, $size-step, $heading-tier) {
+  $base-font-size: nested-map-get($typera-base-values, base font size);
+  $baseline: nested-map-get($typera-base-values, baseline);
+
   $multiplier: 1 + $size-step * (6 - $heading-tier);
   font: {
     size: $base-font-size * $multiplier;

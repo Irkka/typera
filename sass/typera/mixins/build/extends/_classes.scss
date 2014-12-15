@@ -1,6 +1,6 @@
 @import 'classes/article';
 
-@mixin build-classes($typera-base-values, $palette) {
+@mixin build-classes($typera-base-values) {
   %type {
     border-bottom: 1px solid;
     display: inline-block;

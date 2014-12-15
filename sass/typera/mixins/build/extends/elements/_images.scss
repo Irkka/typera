@@ -1,4 +1,4 @@
-@mixin build-images($typera-base-values, $palette) {
+@mixin build-elements-images($typera-base-values) {
   %img {
   }
 
@@ -24,17 +24,17 @@
   }
 
   %figcaption {
-   padding: 5px;
-   font-family: nested-map-get($typera-base-values, font families cursive);
-   font-size: 1em;
-   font-weight: 700;
-   border: none;
-   background: transparent;
-   word-wrap:normal;
-   text-align: left;
+    @extend %base-heading;
+    padding: 5px;
+    font-size: 1em;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    word-wrap:normal;
+    text-align: left;
 
-   &:before {
-     content: '-';
-   }
- }
+    &:before {
+      content: '-';
+    }
+  }
 }

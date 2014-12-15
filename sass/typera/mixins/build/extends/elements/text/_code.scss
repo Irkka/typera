@@ -1,0 +1,33 @@
+@mixin build-elements-text-code($typera-base-values) {
+  $baseline: nested-map-get($typera-base-values, baseline);
+
+  %code {
+    @extend %base-text;
+    @extend %code-snippet;
+    $multiplier: 1.2;
+    font: {
+      family: nested-map-get($typera-base-values, font families monospace);
+      weight: 500;
+    }
+    @include responsive-text($typera-base-values, $multiplier);
+    padding: .1em .4em;
+
+    pre & {
+      background: none;
+      border: none;
+      padding: unset;
+      display: block;
+    }
+  }
+
+  %code-snippet {
+    background: #BBBBBB;
+    border: 1px solid darken(#BBBBBB, 5);
+    border-radius: 4px * 1.5;
+  }
+
+  %code-block {
+    @extend %code-snippet;
+    padding: $baseline/2;
+  }
+}

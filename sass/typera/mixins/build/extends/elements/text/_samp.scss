@@ -1,0 +1,8 @@
+@mixin build-elements-text-samp($typera-base-values) {
+  %samp {
+    @extend %code;
+    &:before {
+      content: '==>';
+    }
+  }
+}

@@ -1,149 +1,47 @@
-@mixin build-text($typera-base-values, $palette) {
-  $base-font-family-type: nested-map-get($typera-base-values, base font family);
-  $base-font-family: nested-map-get($typera-base-values, font families $base-font-family-type);
-  $base-font-size: nested-map-get($typera-base-values, base font size);
-  $base-font-color: nested-map-get($typera-base-values, base font color);
-  $base-accent-color: nested-map-get($palette, main-colors accent-color);
+@import 'text/a';
+@import 'text/abbr';
+@import 'text/address';
+@import 'text/blockquote';
+@import 'text/cite';
+@import 'text/code';
+@import 'text/del';
+@import 'text/dfn';
+@import 'text/h';
+@import 'text/ins';
+@import 'text/kbd';
+@import 'text/mark';
+@import 'text/p';
+@import 'text/pre';
+@import 'text/q';
+@import 'text/s';
+@import 'text/samp';
+@import 'text/sub';
+@import 'text/sup';
+@import 'text/time';
+@import 'text/var';
+@import 'text/hr';
 
-  $base-heading-font-family-type: nested-map-get($typera-base-values, base heading font family);
-  $base-heading-font-family: nested-map-get($typera-base-values, font families $base-heading-font-family-type);
-
-  $baseline: $base-font-size * nested-map-get($typera-base-values, baseline);
-
-  %hr {
-    $gray: #BBBBBB;
-    color: transparentize($gray, 0.5);
-    width: $baseline * 3;
-    margin: {
-      top: $baseline * 2;
-      bottom: $baseline * 2;
-    }
-  }
-
-  p {
-    @extend %base-text-block;
-  }
-
-  a {
-    @extend %base-text;
-    color: $base-accent-color;
-  }
-
-  %code {
-    @extend %base-text;
-    @extend %code-snippet;
-    $multiplier: 1.2;
-    font: {
-      family: nested-map-get($typera-base-values, font families monospace);
-      weight: 500;
-    }
-    @include responsive-text($base-font-size, $baseline, $multiplier);
-    padding: .1em .4em;
-
-    pre & {
-      background: none;
-      border: none;
-      padding: unset;
-      display: block;
-    }
-  }
-
-  %code-snippet {
-    background: #BBBBBB;
-    border: 1px solid darken(#BBBBBB, 5);
-    border-radius: 4px * 1.5;
-  }
-
-  %code-block {
-    @extend %code-snippet;
-    padding: $baseline/2;
-  }
-
-  code {
-    @extend %code;
-  }
-
-  pre {
-    @extend %code-block;
-  }
-
-  kbd {
-    @extend %code;
-    &:before {
-      content: '$ >';
-    }
-    &:after {
-      content: '\21b5';
-    }
-  }
-
-  samp {
-    @extend %code;
-    &:before {
-      content: '==>';
-    }
-  }
-
-  var {
-    @extend %code;
-  }
-
-  blockquote {
-    font-family: Georgia, serif;
-    /*padding: 0.25em 40px;*/
-    color: #383838;
-    position: relative;
-    float: left;
-    clear: both;
-
-    &:nth-of-type(even) {
-      float: right;
-    }
-
-    &:before {
-      display: block;
-      content: "\201C";
-      font-size: 80px;
-      position: absolute;
-      @include transform(translateX(-0.6em) translateY(-0.2em));
-      color: #7a7a7a;
-    }
-
-    cite {
-      color: #999999;
-      font-size: 14px;
-      display: block;
-      margin-top: 5px;
-
-      &:before {
-        content: "\2014 \2009";
-      }
-    }
-
-  }
-  // abbr, address, caption(tables), del, ins, q(short quote), sup/sub(sub/superscript - especially for citing annotations), time, code(ouput, code, samp, kbd, var), details, summary, dialog, s, mark
-
-  /*cite {*/
-  /*color: lighten($base-font-color, 25);*/
-  /*font-style: italic;*/
-
-  /*&:before {*/
-  /*content: "\2014 \00A0";*/
-/*}*/
-  /*}*/
-
-  /*a {*/
-  /*@include transition(color 0.1s linear);*/
-  /*color: $base-link-color;*/
-  /*text-decoration: none;*/
-
-  /*&:hover {*/
-  /*color: $hover-link-color;*/
-/*}*/
-
-  /*&:active, &:focus {*/
-  /*color: $hover-link-color;*/
-  /*outline: none;*/
-/*}*/
-  /*}*/
+@mixin build-elements-text($typera-base-values) {
+  @include build-elements-text-a($typera-base-values);
+  @include build-elements-text-abbr($typera-base-values);
+  @include build-elements-text-address($typera-base-values);
+  @include build-elements-text-blockquote($typera-base-values);
+  @include build-elements-text-cite($typera-base-values);
+  @include build-elements-text-code($typera-base-values);
+  @include build-elements-text-del($typera-base-values);
+  @include build-elements-text-dfn($typera-base-values);
+  @include build-elements-text-h($typera-base-values);
+  @include build-elements-text-ins($typera-base-values);
+  @include build-elements-text-kbd($typera-base-values);
+  @include build-elements-text-mark($typera-base-values);
+  @include build-elements-text-p($typera-base-values);
+  @include build-elements-text-pre($typera-base-values);
+  @include build-elements-text-q($typera-base-values);
+  @include build-elements-text-s($typera-base-values);
+  @include build-elements-text-samp($typera-base-values);
+  @include build-elements-text-sub($typera-base-values);
+  @include build-elements-text-sup($typera-base-values);
+  @include build-elements-text-time($typera-base-values);
+  @include build-elements-text-var($typera-base-values);
+  @include build-elements-text-hr($typera-base-values);
 }

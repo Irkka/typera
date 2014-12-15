@@ -1,0 +1,14 @@
+@mixin build-elements-text-h($typera-base-values) {
+  @for $i from 1 through 6 {
+    %h#{$i} {
+      @extend %base-heading;
+      @include responsive-heading($typera-base-values, 2, $i);
+      @include tablet-up {
+        @include responsive-heading($typera-base-values, 0.3, $i);
+      };
+      @include desktop-up {
+        @include responsive-heading($typera-base-values, 0.4, $i);
+      };
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@mixin build-elements-text-a($typera-base-values) {
+  $base-accent-color: nested-map-get($typera-base-values, palette main-colors accent);
+
+  /*a {*/
+  /*@include transition(color 0.1s linear);*/
+  /*color: $base-link-color;*/
+  /*text-decoration: none;*/
+
+  /*&:hover {*/
+  /*color: $hover-link-color;*/
+  /*}*/
+
+  /*&:active, &:focus {*/
+  /*color: $hover-link-color;*/
+  /*outline: none;*/
+  /*}*/
+/*}*/
+
+  %a {
+    @extend %base-text;
+    color: $base-accent-color;
+  }
+}

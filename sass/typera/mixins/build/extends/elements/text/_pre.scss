@@ -1,0 +1,5 @@
+@mixin build-elements-text-pre($typera-base-values) {
+  %pre {
+    @extend %code-block;
+  }
+}

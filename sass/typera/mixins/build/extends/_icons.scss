@@ -1,4 +1,4 @@
-@mixin build-icons($typera-base-values, $palette) {
+@mixin build-icons($typera-base-values) {
   $font-awesome-icons: font-awesome-icons();
   %base-icon {
     display: inline-block;

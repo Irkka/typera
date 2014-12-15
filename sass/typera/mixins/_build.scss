@@ -1,21 +1,7 @@
 @import 'build/utilities';
 @import 'build/extends';
 
-@mixin typera-build($typera-base-values, $palette: ()) {
-  $typera-base-values: configure-typera($typera-base-values);
-
-  $default-palette: (
-    main-colors: (
-      primary-color: red,
-      aux-color: yellow,
-      secondary-aux-color: blue,
-      accent-color: green
-    ),
-    type: accented-analogic
-  );
-  $palette: nested-map-merge($default-palette, $palette);
-
+@mixin typera-build($typera-base-values) {
   @include import-fonts(nested-map-get($typera-base-values, ('font-face')));
-
-  @include build-extends($typera-base-values, $palette);
+  @include build-extends($typera-base-values);
 }

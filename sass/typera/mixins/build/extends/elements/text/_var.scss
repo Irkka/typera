@@ -1,0 +1,5 @@
+@mixin build-elements-text-var($typera-base-values) {
+  %var {
+    @extend %code;
+  }
+}

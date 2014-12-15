@@ -1,0 +1,36 @@
+@mixin base-text($typera-base-values) {
+  $base-font-family-type: nested-map-get($typera-base-values, base font family);
+  $base-font-family: nested-map-get($typera-base-values, font families $base-font-family-type);
+  $base-font-size: nested-map-get($typera-base-values, base font size);
+  $base-font-color: nested-map-get($typera-base-values, palette base gray);
+
+  $baseline: nested-map-get($typera-base-values, baseline);
+
+  %base-text {
+    $multiplier: 1;
+    color: $base-font-color;
+    text-align: justify;
+    margin: none;
+    @include responsive-text($typera-base-values, $multiplier);
+    font: {
+      family: $base-font-family;
+      weight: 400;
+    }
+
+    @include tablet-up {
+      @include responsive-text($typera-base-values, $multiplier + 0.025);
+    }
+
+    @include desktop-up {
+      @include responsive-text($typera-base-values, $multiplier + 0.05);
+    }
+  }
+
+  %base-text-block {
+    @extend %base-text;
+    margin: {
+      top: $baseline;
+      bottom: $baseline;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@mixin build-elements-text-kbd($typera-base-values) {
+  %kbd {
+    @extend %code;
+    &:before {
+      content: '$ >';
+    }
+    &:after {
+      content: '\21b5';
+    }
+  }
+}

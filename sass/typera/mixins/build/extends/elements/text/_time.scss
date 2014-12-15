@@ -1,0 +1,5 @@
+@mixin build-elements-text-time($typera-base-values) {
+  %time {
+    @extend %base-text;
+  }
+}

@@ -1,0 +1,12 @@
+@mixin build-elements-text-hr($typera-base-values) {
+  $baseline: nested-map-get($typera-base-values, baseline);
+  $gray: nested-map-get($typera-base-values, palette base gray);
+  %hr {
+    color: transparentize($gray, 0.5);
+    width: $baseline * 3;
+    margin: {
+      top: $baseline * 2;
+      bottom: $baseline * 2;
+    }
+  }
+}

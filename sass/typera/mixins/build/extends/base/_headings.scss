@@ -1,0 +1,17 @@
+@mixin base-headings($typera-base-values) {
+  $base-heading-font-family-type: nested-map-get($typera-base-values, base heading font family);
+  $base-heading-font-family: nested-map-get($typera-base-values, font families $base-heading-font-family-type);
+
+  $baseline: nested-map-get($typera-base-values, baseline);
+
+  %base-heading {
+    @extend %base-text;
+    text-align: left;
+    text-rendering: optimizeLegibility; // Fix the character spacing for headings
+    clear: both;
+    font: {
+      family: $base-heading-font-family;
+      weight: 700;
+    }
+  }
+}

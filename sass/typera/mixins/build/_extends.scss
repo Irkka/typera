@@ -3,9 +3,9 @@
 @import 'extends/classes';
 @import 'extends/icons';
 
-@mixin build-extends($typera-base-values, $palette) {
-  @include build-base($typera-base-values, $palette);
-  @include build-elements($typera-base-values, $palette);
-  @include build-classes($typera-base-values, $palette);
-  @include build-icons($typera-base-values, $palette);
+@mixin build-extends($typera-base-values) {
+  @include build-base($typera-base-values);
+  @include build-elements($typera-base-values);
+  @include build-classes($typera-base-values);
+  @include build-icons($typera-base-values);
 }

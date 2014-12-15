@@ -1,0 +1,5 @@
+@mixin build-elements-text-caption {
+  %caption {
+    @extend %base-heading;
+  }
+}

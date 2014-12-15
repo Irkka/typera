@@ -1,7 +1,7 @@
 @import 'elements/text';
 @import 'elements/images';
 
-@mixin build-elements($typera-base-values, $palette) {
-  @include build-text($typera-base-values, $palette);
-  @include build-images($typera-base-values, $palette);
+@mixin build-elements($typera-base-values) {
+  @include build-elements-text($typera-base-values);
+  @include build-elements-images($typera-base-values);
 }
