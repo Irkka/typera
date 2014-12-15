@@ -15,7 +15,6 @@
   );
   $palette: nested-map-merge($default-palette, $palette);
 
-  $web-fonts-protocol: 'http';
   @include import-fonts(nested-map-get($typera-base-values, ('font-face')));
 
   @include build-extends($typera-base-values, $palette);

@@ -5,8 +5,9 @@
 }
 
 @mixin import-google-web-fonts($font-families) {
-  @each $font-family in $font-families {
-    @include web-fonts($font-family);
+  $web-fonts-protocol: 'http';
+  @each $font-family, $font-name in $font-families {
+    @include web-fonts($font-name);
   }
 }
 
