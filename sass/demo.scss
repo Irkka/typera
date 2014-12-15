@@ -1,14 +1,21 @@
 @import 'typera';
 
 $typera-base-values: (
-  font: (
-    families: (
-      serif: 'Slabo',
-      sans-serif: 'Questrial',
-      monospace: 'VT323',
-      cursive: 'Lobster'
+  font-face: (
+    local: (
+      path: '../fonts',
+      families: (
+        sans-serif: 'Orange Juice'
+      )
     ),
-    size: 32px
+    google: (
+      families: (
+        serif: 'Lora',
+        sans-serif: 'Questrial',
+        monospace: 'VT323',
+        cursive: 'Lobster'
+      )
+    )
   )
 );
 

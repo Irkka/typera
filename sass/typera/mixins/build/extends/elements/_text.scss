@@ -10,15 +10,15 @@
 
   $baseline: $base-font-size * nested-map-get($typera-base-values, baseline);
 
-    %hr {
-      $gray: #BBBBBB;
-      color: transparentize($gray, 0.5);
-      width: $baseline * 3;
-      margin: {
-        top: $baseline * 2;
-        bottom: $baseline * 2;
-      }
+  %hr {
+    $gray: #BBBBBB;
+    color: transparentize($gray, 0.5);
+    width: $baseline * 3;
+    margin: {
+      top: $baseline * 2;
+      bottom: $baseline * 2;
     }
+  }
 
   p {
     @extend %base-text-block;
@@ -34,7 +34,7 @@
     @extend %code-snippet;
     $multiplier: 1.2;
     font: {
-      family: $monospace;
+      family: nested-map-get($typera-base-values, font families monospace);
       weight: 500;
     }
     @include responsive-text($base-font-size, $baseline, $multiplier);
