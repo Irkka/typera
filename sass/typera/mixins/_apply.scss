@@ -19,20 +19,19 @@
   @include apply-classes(map-get($apply-map, classes));
 }
 
-@mixin typera-apply($typera-base-values, $palette) {
-  @include typera-build($typera-base-values, $palette);
-  $typera-base-values: configure-typera($typera-base-values);
+@mixin typera-apply($typera-base-values) {
+  @include typera-build($typera-base-values);
 
   $all-elements: ();
-  $text-elements: nested-map-get($typera-base-values, elements text);
-  $image-elements: nested-map-get($typera-base-values, elements image);
-  $other-elements: nested-map-get($typera-base-values, elements other);
+  $text-elements: nested-map-get($typera-base-values, selectors elements text);
+  $image-elements: nested-map-get($typera-base-values, selectors elements image);
+  $other-elements: nested-map-get($typera-base-values, selectors elements other);
 
   @each $element-list in $text-elements, $image-elements, $other-elements {
     $all-elements: join($all-elements, $element-list);
   }
 
-  $all-classes: nested-map-get($typera-base-values, classes);
+  $all-classes: nested-map-get($typera-base-values, selectors classes);
 
   $apply-map: (elements: $all-elements, classes: $all-classes);
   @include apply-all($apply-map);

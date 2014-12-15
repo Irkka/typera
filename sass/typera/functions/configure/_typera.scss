@@ -1,9 +1,8 @@
-@function configure-typera($typera-base-values) {
-  $default-base-values: (
+@function base-values() {
+  $base-values: (
     font-face: (
       local: (
         families: (
-          sans-serif: 'Orange Juice'
         )
       ),
       google: (
@@ -13,9 +12,6 @@
           monospace: 'VT323',
           cursive: 'Lobster'
         )
-      ),
-      icons: (
-        font-awesome: 'http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.woff?v=4.2.0'
       )
     ),
     font: (
@@ -31,7 +27,7 @@
       font: (
         size: 16px,
         family: sans-serif,
-        color: #111
+        color: #111111
       ),
       heading: (
         font: (
@@ -39,14 +35,37 @@
         )
       )
     ),
-    baseline: 0.8,
-    elements: (
-      text: ('a' 'abbr' 'address' 'blockquote' 'cite' 'code' 'del' 'dfn' 'h1' 'h2' 'h3' 'h4' 'h5' 'h6' 'ins' 'kdb' 'mark' 'pre' 'q' 's' 'samp' 'sub' 'sup' 'time' 'var'),
-      image: ('img', 'figure', 'figcaption'),
-      other: ('hr')
+    selectors: (
+      elements: (
+        text: ('a' 'abbr' 'address' 'blockquote' 'cite' 'code' 'del' 'dfn' 'h1' 'h2' 'h3' 'h4' 'h5' 'h6' 'ins' 'kbd' 'mark' 'p' 'pre' 'q' 's' 'samp' 'sub' 'sup' 'time' 'var'),
+        image: ('img', 'figure', 'figcaption'),
+        other: ('hr')
+      ),
+      classes: 'type' 'date' 'author' 'read-more'
     ),
-    classes: 'type' 'date' 'author' 'read-more'
+    palette: (
+      main-colors: (
+        primary-color: red,
+        aux-color: yellow,
+        secondary-aux-color: blue,
+        accent-color: green
+      ),
+      base: (
+        gray: #777
+      ),
+      type: accented-analogic
+    )
   );
 
-  @return nested-map-merge($default-base-values, $typera-base-values);
+  @return $base-values;
+}
+
+@function configure-typera($typera-base-values, $baseline-multiplier, $palette) {
+  $typera-base-values: map-set($typera-base-values, palette, $palette);
+  $typera-base-values: nested-map-merge(base-values(), $typera-base-values);
+
+  $baseline: nested-map-get($typera-base-values, base font size) * $baseline-multiplier;
+  $typera-base-values: map-set($typera-base-values, baseline, $baseline);
+
+  @return $typera-base-values;
 }
