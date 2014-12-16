@@ -1,6 +1,5 @@
 @mixin base-text($typera-base-values) {
-  $base-font-family-type: nested-map-get($typera-base-values, base font family);
-  $base-font-family: nested-map-get($typera-base-values, font families $base-font-family-type);
+  $base-font-family: nested-map-get($typera-base-values, base font stacks sans-serif);
   $base-font-size: nested-map-get($typera-base-values, base font size);
   $base-font-color: nested-map-get($typera-base-values, palette base gray);
 

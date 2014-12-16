@@ -4,16 +4,26 @@ $typera-base-values: (
   font-face: (
     local: (
       path: '../fonts',
-      families: (
-        sans-serif: 'Orange Juice'
+      generic-families: (
+        serif: (),
+        sans-serif: (),
+        monospace: (),
+        cursive: (),
+        fantasy: (
+          (name: 'Hobbiton Brush Hand', file: 'hobbitonbrushhand'), ()
+        ),
+        icon: (
+          (name: 'Font Awesome', file: 'fontawesome-webfont')
+        )
       )
     ),
     google: (
-      families: (
-        serif: 'Lora',
-        sans-serif: 'Questrial',
-        monospace: 'VT323',
-        cursive: 'Lobster'
+      generic-families: (
+        serif: ((name: 'Lora')),
+        sans-serif: ((name: 'Questrial'), (name: 'Open Sans Condensed')),
+        monospace: ((name: 'VT323')),
+        cursive: ((name: 'Lobster')),
+        fantasy: ((name: 'Freckle Face'), (name: 'UnifrakturCook'))
       )
     )
   )
@@ -21,7 +31,7 @@ $typera-base-values: (
 
 $palette: (
   main-colors: (
-    primary-color: red,
+    primary-color: pink,
     aux-color: green,
     secondary-aux-color: yellow,
     accent-color: blue
@@ -29,4 +39,10 @@ $palette: (
   type: accented-analogic
 );
 
-@include typera-apply($typera-base-values, $palette);
+$typera-base-values: configure-typera($typera-base-values, 0.8, $palette);
+@include typera-apply($typera-base-values);
+
+h1 {
+  @extend %icon-github;
+  font-family: nested-map-get($typera-base-values, base font stacks fantasy);
+}

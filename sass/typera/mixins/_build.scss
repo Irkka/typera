@@ -2,6 +2,6 @@
 @import 'build/extends';
 
 @mixin typera-build($typera-base-values) {
-  @include import-fonts(nested-map-get($typera-base-values, ('font-face')));
+  @include import-fonts($typera-base-values);
   @include build-extends($typera-base-values);
 }

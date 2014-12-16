@@ -1,37 +1,20 @@
 @function base-values() {
   $base-values: (
-    font-face: (
-      local: (
-        families: (
-        )
-      ),
-      google: (
-        families: (
-          serif: 'Lora',
-          sans-serif: 'Questrial',
-          monospace: 'VT323',
-          cursive: 'Lobster'
-        )
-      )
-    ),
-    font: (
-      families: (
-        serif: 'Lora',
-        sans-serif: 'Questrial',
-        monospace: 'VT323',
-        cursive: 'Lobster'
-      ),
-      size: 16px
-    ),
     base: (
       font: (
+        families: (),
+        stacks: (
+          serif: ('Times New Roman', serif),
+          sans-serif: (Helvetica, sans-serif),
+          monospace: ('Courier New', monospace),
+          cursive: ('Parkavenue', cursive),
+          fantasy: (Arnoldboecklin, fantasy)
+        ),
         size: 16px,
-        family: sans-serif,
         color: #111111
       ),
       heading: (
         font: (
-        family: cursive
         )
       )
     ),
@@ -51,7 +34,7 @@
         accent-color: green
       ),
       base: (
-        gray: #777
+        gray: #111
       ),
       type: accented-analogic
     )
@@ -60,9 +43,50 @@
   @return $base-values;
 }
 
+@function prepend-list($list, $value) {
+  @return join($value, $list);
+}
+
+@function create-font-stack($font-stack, $font-family) {
+  $font-family-name: nested-map-get($font-family, name);
+  @return prepend-list($font-stack, $font-family-name);
+}
+
+@function configure-fonts($typera-base-values) {
+  $local-generic-families: nested-map-get($typera-base-values, font-face local generic-families);
+  $google-generic-families: nested-map-get($typera-base-values, font-face google generic-families);
+
+  $all-generic-families: nested-map-merge($local-generic-families, $google-generic-families);
+
+  $font-stacks: nested-map-get($typera-base-values, base font stacks);
+  @each $font-generic-family, $font-stack in $font-stacks {
+    $font-families: nested-map-get($all-generic-families, $font-generic-family);
+    @if type-of($font-families) == list {
+      $font-family: nth($font-families, 1);
+      $font-family-stack: create-font-stack($font-stack, $font-family);
+      $typera-base-values: nested-map-set($typera-base-values, base font stacks $font-generic-family, $font-family-stack);
+      $font-family-stack-list: ();
+      @each $font-family in $font-families {
+        $font-family-stack: create-font-stack($font-stack, $font-family);
+        $font-family-stack-list: append($font-family-stack-list, $font-family-stack);
+      }
+      $typera-base-values: nested-map-set($typera-base-values, base font families $font-generic-family, $font-family-stack-list);
+    }
+    @else {
+      $font-family-stack: create-font-stack($font-stack, $font-families);
+      $typera-base-values: nested-map-set($typera-base-values, base font stacks $font-generic-family, $font-family-stack);
+      $typera-base-values: nested-map-set($typera-base-values, base font families $font-generic-family, $font-family-stack);
+    }
+  }
+
+  @return $typera-base-values;
+}
+
 @function configure-typera($typera-base-values, $baseline-multiplier, $palette) {
   $typera-base-values: map-set($typera-base-values, palette, $palette);
   $typera-base-values: nested-map-merge(base-values(), $typera-base-values);
+
+  $typera-base-values: configure-fonts($typera-base-values);
 
   $baseline: nested-map-get($typera-base-values, base font size) * $baseline-multiplier;
   $typera-base-values: map-set($typera-base-values, baseline, $baseline);

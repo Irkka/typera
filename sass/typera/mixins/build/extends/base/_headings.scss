@@ -1,7 +1,5 @@
 @mixin base-headings($typera-base-values) {
-  $base-heading-font-family-type: nested-map-get($typera-base-values, base heading font family);
-  $base-heading-font-family: nested-map-get($typera-base-values, font families $base-heading-font-family-type);
-
+  $base-heading-font-family: nested-map-get($typera-base-values, base font stacks cursive);
   $baseline: nested-map-get($typera-base-values, baseline);
 
   %base-heading {

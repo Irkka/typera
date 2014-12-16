@@ -1,28 +1,41 @@
-@mixin import-fonts($font-maps) {
-  @include import-google-web-fonts(nested-map-get($font-maps, google families));
+@mixin import-fonts($typera-base-values) {
+  $font-maps: nested-map-get($typera-base-values, font-face);
+  @include import-google-web-fonts(nested-map-get($font-maps, google));
   @include import-local(nested-map-get($font-maps, local));
 }
 
-@mixin import-google-web-fonts($font-families) {
-  $web-fonts-protocol: 'http';
-  @each $font-family, $font-name in $font-families {
-    @include web-fonts($font-name);
+@mixin import-google-web-fonts($font-google) {
+  $font-list: ();
+  $generic-families: nested-map-get($font-google, generic-families);
+
+  @each $generic-family, $font-families in $generic-families {
+    @if type-of($font-families) == list {
+      @each $font-family in $font-families {
+        $font-name: nested-map-get($font-family, name);
+        $font-list: append($font-list, $font-name);
+      }
+    }
+    @else {
+      $font-name: nested-map-get($font-families, name);
+      $font-list: append($font-list, $font-name);
+    }
   }
+
+  $web-fonts-protocol: 'http';
+  @include web-fonts($font-list);
 }
 
 @mixin import-local($font-local) {
   $font-path: nested-map-get($font-local, path);
-  $font-families: nested-map-get($font-local, families);
+  $font-families: nested-map-get($font-local, generic-families);
 
   @each $font-family, $font-faces in $font-families {
-    @debug $font-family;
-    @debug $font-faces;
     @if type-of($font-faces) != list {
-      @include font-face(nested-map-get($font-faces, name), nested-map-get($font-faces, file));
+      @include font-face(nested-map-get($font-faces, name), #{$font-path}/#{nested-map-get($font-faces, file)});
     }
     @else {
       @each $font-face in $font-faces {
-        @include font-face(nested-map-get($font-face, name), nested-map-get($font-face, file));
+        @include font-face(nested-map-get($font-face, name), #{$font-path}/#{nested-map-get($font-face, file)});
       }
     }
   }

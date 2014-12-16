@@ -1,18 +1,19 @@
 @mixin build-elements-text-code($typera-base-values) {
   $baseline: nested-map-get($typera-base-values, baseline);
+  $monospace: nested-map-get($typera-base-values, base font stacks monospace);
 
   %code {
     @extend %base-text;
     @extend %code-snippet;
     $multiplier: 1.2;
     font: {
-      family: nested-map-get($typera-base-values, font families monospace);
+      family: $monospace;
       weight: 500;
     }
     @include responsive-text($typera-base-values, $multiplier);
     padding: .1em .4em;
 
-    pre & {
+    %pre & {
       background: none;
       border: none;
       padding: unset;
